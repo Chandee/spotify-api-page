@@ -1,11 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import Routes from './routes/Routes';
 
 const App = () => {
-  return (
-    <h1>
-     oi
-    </h1>
-  )
-}
+  return <Routes />;
+};
 
-export default App
+export default App;
