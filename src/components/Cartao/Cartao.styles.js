@@ -18,7 +18,18 @@ export const EstiloArtista = styled.p`
 `;
 
 export const Container = styled.div`
-  width: 230px;
+  width: 200px;
   padding: 16px;
   text-align: center;
+
+  :hover {
+    background: #ffffff;
+    p {
+      color: #000000;
+    }
+
+    p:last-child {
+      opacity: 50%;
+    }
+  }
 `;

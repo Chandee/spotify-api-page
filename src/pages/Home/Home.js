@@ -1,13 +1,13 @@
 import React from 'react';
 import Cartao from '../../components/Cartao/Cartao';
+import InputPesquisa from '../../components/InputPesquisa/InputPesquisa';
+import Lista from '../../components/Lista/Lista';
 import * as S from './Home.styles';
 const Home = () => {
   return (
     <S.Container>
-      <Cartao
-        nomeAlbum='Joao das coves playlist'
-        nomeArtista='Joao das coves'
-      />
+      <InputPesquisa />
+      <Lista tituloLista='Álbuns recentes' />
     </S.Container>
   );
 };

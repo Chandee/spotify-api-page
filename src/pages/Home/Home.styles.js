@@ -6,5 +6,5 @@ export const Paragrafo = styled.p`
 `;
 
 export const Container = styled.section`
-  margin: 0 80px;
+  margin: 0 60px;
 `;
