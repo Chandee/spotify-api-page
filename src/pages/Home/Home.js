@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <S.Container>
       <InputPesquisa />
-      <Lista tituloLista='Álbuns recentes' />
+      <Lista />
     </S.Container>
   );
 };

@@ -17,11 +17,6 @@ const Callback = () => {
     }
     sessionStorage.setItem('auth_token', hashParams.access_token);
     history.push('/home');
-    // requestAxios('/search?q=zeca&type=album,track&market=from_token', {
-    //   method: 'get',
-    // })
-    //   .then(res => console.log(res))
-    //   .catch(err => console.log(err));
   };
 
   useEffect(() => {

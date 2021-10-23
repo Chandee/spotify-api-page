@@ -7,7 +7,7 @@
     "start": "webpack serve --open --hot --client-overlay-errors --mode development",
     "build": "webpack --mode production",
     "test": "jest -c jest.config.js",
-    "test:coverage" : "jest -c jest.config.js --collectCoverage"
+    "test:coverage": "jest -c jest.config.js --collectCoverage"
   },
   "author": "",
   "license": "ISC",
@@ -25,9 +25,11 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.4.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^27.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "redux-devtools-extension": "^2.13.9",
     "style-loader": "^3.3.0",
     "webpack": "^5.59.1",
     "webpack-cli": "^4.9.1",
@@ -35,7 +37,10 @@
   },
   "dependencies": {
     "axios": "^0.23.0",
+    "react-redux": "^7.2.5",
     "react-router-dom": "^5.3.0",
+    "redux": "^4.1.1",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^5.3.3"
   }
 }

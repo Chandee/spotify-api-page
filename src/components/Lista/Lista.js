@@ -1,73 +1,46 @@
 import React from 'react';
 import Cartao from '../Cartao/Cartao';
 import * as S from './Lista.styles';
+import { connect } from 'react-redux';
 
-const Lista = ({ tituloLista }) => {
-  const vetor = [
-    {
-      nomeAlbum: 'Joao das coves playlist',
-      nomeArtista: 'Joao das coves',
-      id: 'asd',
-    },
-    {
-      nomeAlbum: 'Joao das coves playlist',
-      nomeArtista: 'Joao das coves',
-      id: 'tre',
-    },
-    {
-      nomeAlbum: 'Joao das coves playlist',
-      nomeArtista: 'Joao das coves',
-      id: 'gdf',
-    },
-    {
-      nomeAlbum: 'Joao das coves playlist',
-      nomeArtista: 'Joao das coves',
-      id: 'hgf',
-    },
-    {
-      nomeAlbum: 'Joao das coves playlist',
-      nomeArtista: 'Joao das coves',
-      id: 'dfg',
-    },
-    {
-      nomeAlbum: 'Joao das coves playlist',
-      nomeArtista: 'Joao das coves',
-      id: 'bvb',
-    },
-    {
-      nomeAlbum: 'Joao das coves playlist',
-      nomeArtista: 'Joao das coves',
-      id: 'yjb',
-    },
-    {
-      nomeAlbum: 'Joao das coves playlist',
-      nomeArtista: 'Joao das coves',
-      id: 'vwr',
-    },
-    {
-      nomeAlbum: 'Joao das coves playlist',
-      nomeArtista: 'Joao das coves',
-      id: 'kiu',
-    },
-    {
-      nomeAlbum: 'Joao das coves playlist',
-      nomeArtista: 'Joao das coves',
-      id: 'bvf',
-    },
-  ];
+const Lista = ({ dadosAlbum, pesquisa }) => {
+  const listaArtistas = todosArtistas => {
+    return todosArtistas.reduce((acumulador, atual, index) => {
+      if (index === 0) {
+        return (acumulador = acumulador + atual);
+      } else {
+        return (acumulador = acumulador + ', ' + atual);
+      }
+    }, '');
+  };
+
+  const ExisteDado = () => {
+    return dadosAlbum.length > 0 ? true : false;
+  };
 
   return (
     <S.Container>
-      <S.Titulo>{tituloLista}</S.Titulo>
-      {vetor.map(v => (
+      {ExisteDado() && (
+        <S.Titulo>Resultados encontrados para "{pesquisa}"</S.Titulo>
+      )}
+      {dadosAlbum.map(v => (
         <Cartao
           nomeAlbum={v.nomeAlbum}
-          nomeArtista={v.nomeArtista}
+          nomeArtista={listaArtistas(v.artistas)}
           key={v.id}
+          imagem={v.imagem.url}
         />
       ))}
+      {!ExisteDado() && <S.Titulo>Nenhum dado encontrado</S.Titulo>}
     </S.Container>
   );
 };
 
-export default Lista;
+const mapStateToProps = state => {
+  return {
+    dadosAlbum: state.dadosGerais.dados,
+    pesquisa: state.dadosGerais.ultimaPesquisa,
+  };
+};
+
+export default connect(mapStateToProps)(Lista);

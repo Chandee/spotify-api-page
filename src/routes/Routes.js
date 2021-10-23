@@ -6,6 +6,7 @@ import {
   Link,
   Redirect,
 } from 'react-router-dom';
+import Album from '../pages/Album/Album';
 import Callback from '../pages/Callback/Callback';
 import Home from '../pages/Home/Home';
 import Login from '../pages/Login/Login';
@@ -20,8 +21,11 @@ const Routes = () => {
       <Container>
         <header>imagem aqui</header>
         <Switch>
-          <Route path='/about'>
-            <div>baout</div>
+          <Route exact path='/'>
+            <Redirect to='/login' />
+          </Route>
+          <Route path='/album/:artista'>
+            <Album />
           </Route>
           <Route path='/home'>
             <Home />
@@ -31,9 +35,6 @@ const Routes = () => {
           </Route>
           <Route path='/callback'>
             <Callback />
-          </Route>
-          <Route path='/'>
-            <Redirect to='/login' />
           </Route>
         </Switch>
       </Container>

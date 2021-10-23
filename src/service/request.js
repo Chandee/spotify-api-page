@@ -15,6 +15,7 @@ export const requestAxios = (url, config) => {
         sessionStorage.removeItem('auth_token');
         window.location = '/login';
       }
+      return err;
     }
   );
 
