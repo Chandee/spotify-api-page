@@ -12,10 +12,6 @@ import Home from '../pages/Home/Home';
 import Login from '../pages/Login/Login';
 import { Container } from './Routes.styles';
 const Routes = () => {
-  useEffect(() => {
-    console.log('teste aqui');
-  }, []);
-
   return (
     <Router>
       <Container>
@@ -24,7 +20,7 @@ const Routes = () => {
           <Route exact path='/'>
             <Redirect to='/login' />
           </Route>
-          <Route path='/album/:artista'>
+          <Route path='/album/:id'>
             <Album />
           </Route>
           <Route path='/home'>

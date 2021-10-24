@@ -3,8 +3,8 @@ import { fetchAlbum } from '../../redux/actions';
 import * as S from './InputPesquisa.styles';
 import { connect } from 'react-redux';
 
-const InputPesquisa = ({ fetchAlbum }) => {
-  const [valor, setValor] = useState('');
+const InputPesquisa = ({ fetchAlbum, pesquisa }) => {
+  const [valor, setValor] = useState('' || pesquisa);
   const fazChamda = useRef(false);
 
   useEffect(() => {
@@ -18,11 +18,14 @@ const InputPesquisa = ({ fetchAlbum }) => {
 
   return (
     <S.Container>
-      <S.Label>Busque por artistas, álbuns ou músicas</S.Label>
+      <S.Label htmlFor='Pesquisar'>
+        Busque por artistas, álbuns ou músicas
+      </S.Label>
       <S.Input
         onChange={e => setValor(e.target.value)}
         value={valor}
         placeholder='Comece a escrever...'
+        id='Pesquisar'
       />
     </S.Container>
   );
@@ -34,4 +37,10 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(InputPesquisa);
+const mapStateToProps = state => {
+  return {
+    pesquisa: state.dadosGerais?.ultimaPesquisa,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(InputPesquisa);

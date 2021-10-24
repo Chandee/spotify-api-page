@@ -22,7 +22,10 @@ export const Container = styled.div`
   padding: 16px;
   text-align: center;
 
-  :hover {
+  ${props =>
+    props.noHover
+      ? ''
+      : `:hover {
     background: #ffffff;
     p {
       color: #000000;
@@ -31,5 +34,5 @@ export const Container = styled.div`
     p:last-child {
       opacity: 50%;
     }
-  }
+  }`}
 `;

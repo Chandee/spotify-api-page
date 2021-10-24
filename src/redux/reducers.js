@@ -11,17 +11,18 @@ import { combineReducers } from 'redux';
 const initialStateDados = {
   loading: false,
   dados: [],
+  ultimaPesquisa: '',
   error: '',
 };
 
 const initialStateMusica = {
   loading: false,
-  album: {},
   musicas: [],
+  album: {},
   ultimaMusicaTocada: {},
 };
 
-const reducerDados = (state = initialStateDados, action) => {
+export const reducerDados = (state = initialStateDados, action) => {
   switch (action.type) {
     case FETCH_ALBUM_REQUEST:
       return {
@@ -46,7 +47,7 @@ const reducerDados = (state = initialStateDados, action) => {
   }
 };
 
-const reducerMusica = (state = initialStateMusica, action) => {
+export const reducerMusica = (state = initialStateMusica, action) => {
   switch (action.type) {
     case FETCH_MUSICA_REQUEST:
       return {
@@ -56,14 +57,15 @@ const reducerMusica = (state = initialStateMusica, action) => {
     case FETCH_MUSICA_SUCCESS:
       return {
         loading: false,
-        musicas: action.musicas,
-        album: action.album,
+        musicas: action.payload.musicas,
+        album: action.payload.album,
         error: '',
       };
     case FETCH_MUSICA_FAILURE:
       return {
         loading: false,
-        dados: [],
+        musicas: [],
+        album: {},
         error: action.payload,
       };
     default:

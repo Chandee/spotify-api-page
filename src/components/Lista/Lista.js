@@ -2,18 +2,11 @@ import React from 'react';
 import Cartao from '../Cartao/Cartao';
 import * as S from './Lista.styles';
 import { connect } from 'react-redux';
+import { listaArtistas } from '../../utils/formatador';
+import { useHistory } from 'react-router-dom';
 
 const Lista = ({ dadosAlbum, pesquisa }) => {
-  const listaArtistas = todosArtistas => {
-    return todosArtistas.reduce((acumulador, atual, index) => {
-      if (index === 0) {
-        return (acumulador = acumulador + atual);
-      } else {
-        return (acumulador = acumulador + ', ' + atual);
-      }
-    }, '');
-  };
-
+  const history = useHistory();
   const ExisteDado = () => {
     return dadosAlbum.length > 0 ? true : false;
   };
@@ -29,6 +22,7 @@ const Lista = ({ dadosAlbum, pesquisa }) => {
           nomeArtista={listaArtistas(v.artistas)}
           key={v.id}
           imagem={v.imagem.url}
+          clique={() => history.push(`/album/${v.id}`)}
         />
       ))}
       {!ExisteDado() && <S.Titulo>Nenhum dado encontrado</S.Titulo>}

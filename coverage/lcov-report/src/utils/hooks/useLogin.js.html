@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>19/19</span>
+                <span class='fraction'>0/19</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>19/19</span>
+                <span class='fraction'>0/19</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -89,63 +89,63 @@
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState, useEffect } from 'react';
 &nbsp;
-export const useLogin = () =&gt; {
-  const [urlFinal, setUrlFinal] = useState('');
-  const gerarStringRandomica = length =&gt; {
-    return Math.random().toString(16).substr(2, length);
+export const useLogin = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+  const [urlFinal, setUrlFinal] = <span class="cstat-no" title="statement not covered" >useState('');</span>
+  const gerarStringRandomica = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >le</span>ngth =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return Math.random().toString(16).substr(2, length);</span>
   };
 &nbsp;
-  const funcaoLogin = () =&gt; {
-    var client_id = 'a5626c71bb664145b9bdce4e0b87c865'; //trocar para env
-    var redirect_uri = 'http://localhost:3000/callback';
-    var state = gerarStringRandomica(16);
-    var scope = 'user-read-private user-read-email';
-    var url = 'https://accounts.spotify.com/authorize';
+  const funcaoLogin = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+    var client_id = <span class="cstat-no" title="statement not covered" >'a5626c71bb664145b9bdce4e0b87c865';</span> //trocar para env
+    var redirect_uri = <span class="cstat-no" title="statement not covered" >'http://localhost:3000/callback';</span>
+    var state = <span class="cstat-no" title="statement not covered" >gerarStringRandomica(16);</span>
+    var scope = <span class="cstat-no" title="statement not covered" >'user-read-private user-read-email';</span>
+    var url = <span class="cstat-no" title="statement not covered" >'https://accounts.spotify.com/authorize';</span>
 &nbsp;
-    url += '?response_type=token';
-    url += '&amp;client_id=' + encodeURIComponent(client_id);
-    url += '&amp;scope=' + encodeURIComponent(scope);
-    url += '&amp;redirect_uri=' + encodeURIComponent(redirect_uri);
-    url += '&amp;state=' + encodeURIComponent(state);
+<span class="cstat-no" title="statement not covered" >    url += '?response_type=token';</span>
+<span class="cstat-no" title="statement not covered" >    url += '&amp;client_id=' + encodeURIComponent(client_id);</span>
+<span class="cstat-no" title="statement not covered" >    url += '&amp;scope=' + encodeURIComponent(scope);</span>
+<span class="cstat-no" title="statement not covered" >    url += '&amp;redirect_uri=' + encodeURIComponent(redirect_uri);</span>
+<span class="cstat-no" title="statement not covered" >    url += '&amp;state=' + encodeURIComponent(state);</span>
 &nbsp;
-    setUrlFinal(url);
+<span class="cstat-no" title="statement not covered" >    setUrlFinal(url);</span>
   };
 &nbsp;
-  useEffect(() =&gt; {
-    funcaoLogin();
+<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    funcaoLogin();</span>
   }, []);
 &nbsp;
-  return urlFinal;
+<span class="cstat-no" title="statement not covered" >  return urlFinal;</span>
 };
 &nbsp;</pre></td></tr></table></pre>
 
@@ -154,7 +154,7 @@ export const useLogin = () =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Oct 23 2021 10:59:01 GMT-0300 (Horário Padrão de Brasília)
+                at Sat Oct 23 2021 23:54:36 GMT-0300 (Horário Padrão de Brasília)
             </div>
         </div>
         <script src="../../../prettify.js"></script>
