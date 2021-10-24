@@ -6,4 +6,8 @@ module.exports = {
     '\\.(css|less)$': 'identity-obj-proxy',
   },
   coveragePathIgnorePatterns: ['.styles.js'],
+  transform: {
+    '^.+\\.js$': 'babel-jest',
+    '\\.svg$': '<rootDir>/fileTransformer.js',
+  },
 };

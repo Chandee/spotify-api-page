@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import Cartao from '../../components/Cartao/Cartao';
 import Playlist from '../../components/Playlist/Playlist';
-import { fetchMusicas } from '../../redux/actions';
+import { fetchMusicas, limpaMusica } from '../../redux/actions';
 import * as S from './Album.styles';
-const Album = ({ fetchMusicas, musicas, album }) => {
+const Album = ({ fetchMusicas, album, limpaMusica }) => {
   const { id } = useParams();
   const history = useHistory();
 
@@ -18,6 +18,7 @@ const Album = ({ fetchMusicas, musicas, album }) => {
       <div>
         <button
           onClick={() => {
+            limpaMusica();
             history.goBack();
           }}
         >
@@ -30,6 +31,7 @@ const Album = ({ fetchMusicas, musicas, album }) => {
             nomeAlbum={album.nomeAlbum}
             nomeArtista={album.artistas}
             imagem={album.imagem?.url}
+            noHover
           />
         </div>
         <S.ContainerPlaylist>
@@ -43,12 +45,12 @@ const Album = ({ fetchMusicas, musicas, album }) => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchMusicas: v => dispatch(fetchMusicas(v)),
+    limpaMusica: v => dispatch(limpaMusica(v)),
   };
 };
 
 const mapStateToProps = state => {
   return {
-    musicas: state.dadosMusica.musicas,
     album: state.dadosMusica.album,
   };
 };

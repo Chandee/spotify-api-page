@@ -25,7 +25,7 @@ export const listaArtistas = todosArtistas => {
   }, '');
 };
 
-const transformaMilisegundoEmMinuto = milisegundo => {
+export const transformaMilisegundoEmMinuto = milisegundo => {
   var minuto = Math.floor(milisegundo / 60000);
   var segundo = ((milisegundo % 60000) / 1000).toFixed(0);
   return minuto + ':' + (segundo < 10 ? '0' : '') + segundo;
@@ -38,6 +38,7 @@ export const retornoMusicas = todasInfoMusica => {
       id: t.id,
       nomeMusica: t.name,
       duracao: transformaMilisegundoEmMinuto(t.duration_ms),
+      preview: t.preview_url,
     };
   });
   const novoObjFormatado = {

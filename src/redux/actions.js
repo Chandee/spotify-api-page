@@ -8,6 +8,8 @@ import {
   FETCH_MUSICA_REQUEST,
   FETCH_MUSICA_SUCCESS,
   FETCH_MUSICA_FAILURE,
+  SAVE_MUSIC,
+  CLEAR_MUSIC,
 } from './constants';
 
 export const fetchAlbum = pesquisa => {
@@ -106,5 +108,19 @@ const fetchMusicaFailure = error => {
   return {
     type: FETCH_MUSICA_FAILURE,
     payload: error,
+  };
+};
+
+export const salvaMusica = payload => {
+  return {
+    type: SAVE_MUSIC,
+    payload: payload,
+  };
+};
+
+export const limpaMusica = payload => {
+  return {
+    type: CLEAR_MUSIC,
+    payload: payload,
   };
 };

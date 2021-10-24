@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
@@ -98,7 +98,18 @@
 <a name='L39'></a><a href='#L39'>39</a>
 <a name='L40'></a><a href='#L40'>40</a>
 <a name='L41'></a><a href='#L41'>41</a>
-<a name='L42'></a><a href='#L42'>42</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -112,7 +123,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -147,34 +165,43 @@ import {
   Link,
   Redirect,
 } from 'react-router-dom';
+import TocadorDeMusica from '../components/TocadorDeMusica/TocadorDeMusica';
 import Album from '../pages/Album/Album';
 import Callback from '../pages/Callback/Callback';
 import Home from '../pages/Home/Home';
 import Login from '../pages/Login/Login';
+import useAuthentication from '../utils/hooks/useAuthentication';
 import { Container } from './Routes.styles';
 const Routes = () =&gt; {
+  const logado = useAuthentication();
+  console.log('toioioio', logado);
   return (
     &lt;Router&gt;
-      &lt;Container&gt;
-        &lt;header&gt;imagem aqui&lt;/header&gt;
-        &lt;Switch&gt;
-          &lt;Route exact path='/'&gt;
-            &lt;Redirect to='/login' /&gt;
-          &lt;/Route&gt;
-          &lt;Route path='/album/:id'&gt;
-            &lt;Album /&gt;
-          &lt;/Route&gt;
-          &lt;Route path='/home'&gt;
-            &lt;Home /&gt;
-          &lt;/Route&gt;
-          &lt;Route path='/login'&gt;
-            &lt;Login /&gt;
-          &lt;/Route&gt;
-          &lt;Route path='/callback'&gt;
-            &lt;Callback /&gt;
-          &lt;/Route&gt;
-        &lt;/Switch&gt;
-      &lt;/Container&gt;
+      &lt;div
+        style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}
+      &gt;
+        &lt;Container&gt;
+          &lt;header&gt;imagem aqui&lt;/header&gt;
+          &lt;Switch&gt;
+            &lt;Route exact path='/'&gt;
+              &lt;Redirect to='/login' /&gt;
+            &lt;/Route&gt;
+            &lt;Route path='/album/:id'&gt;
+              &lt;Album /&gt;
+            &lt;/Route&gt;
+            &lt;Route path='/home'&gt;
+              &lt;Home /&gt;
+            &lt;/Route&gt;
+            &lt;Route path='/login'&gt;
+              {logado ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;Redirect to='/home' /&gt; </span>: &lt;Login /&gt;}
+            &lt;/Route&gt;
+            &lt;Route path='/callback'&gt;
+              &lt;Callback /&gt;
+            &lt;/Route&gt;
+          &lt;/Switch&gt;
+        &lt;/Container&gt;
+        {logado &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;TocadorDeMusica /&gt;}</span>
+      &lt;/div&gt;
     &lt;/Router&gt;
   );
 };
@@ -187,7 +214,7 @@ export default Routes;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sun Oct 24 2021 03:27:46 GMT-0300 (Horário Padrão de Brasília)
+                at Sun Oct 24 2021 19:17:08 GMT-0300 (Horário Padrão de Brasília)
             </div>
         </div>
         <script src="../../prettify.js"></script>

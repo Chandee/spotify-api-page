@@ -112,6 +112,8 @@ describe('testes das actions redux', () => {
                 duracao: '3:15',
                 id: '3ADuEIn09NAZIBgpYY3IsE',
                 nomeMusica: 'Deixa A Vida Me Levar - Ao Vivo',
+                preview:
+                  'https://p.scdn.co/mp3-preview/d0b1a9ecaa7d723cc36fcf74c74801738eb5af27?cid=a5626c71bb664145b9bdce4e0b87c865',
               },
             ],
           },

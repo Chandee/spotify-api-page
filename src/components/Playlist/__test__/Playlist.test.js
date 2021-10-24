@@ -1,7 +1,8 @@
 import React from 'react';
-import { screen } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
 import { renderConnected } from '../../../utils/test-utils';
 import Playlist from '../Playlist';
+import { salvaMusica } from '../../../redux/actions';
 
 describe('Testes da playlist', () => {
   test('Verifica se renderiza todas musicas', () => {
@@ -36,5 +37,7 @@ describe('Testes da playlist', () => {
     ).toBeInTheDocument();
     expect(screen.getByText(/3:15/i)).toBeInTheDocument();
     expect(screen.getByText(/3:09/i)).toBeInTheDocument();
+    fireEvent.click(screen.getByText(/Uma Prova De Amor - Ao Vivo/i));
+    expect(salvaMusica).toBeCalled;
   });
 });

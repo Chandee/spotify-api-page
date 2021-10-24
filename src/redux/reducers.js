@@ -5,6 +5,8 @@ import {
   FETCH_MUSICA_REQUEST,
   FETCH_MUSICA_SUCCESS,
   FETCH_MUSICA_FAILURE,
+  CLEAR_MUSIC,
+  SAVE_MUSIC,
 } from './constants';
 import { combineReducers } from 'redux';
 
@@ -20,6 +22,11 @@ const initialStateMusica = {
   musicas: [],
   album: {},
   ultimaMusicaTocada: {},
+};
+
+const initialStatePlay = {
+  musicaNome: '',
+  urlPreview: '',
 };
 
 export const reducerDados = (state = initialStateDados, action) => {
@@ -73,9 +80,28 @@ export const reducerMusica = (state = initialStateMusica, action) => {
   }
 };
 
+export const reducerPlay = (state = initialStatePlay, action) => {
+  switch (action.type) {
+    case CLEAR_MUSIC:
+      return {
+        musicaNome: '',
+        urlPreview: '',
+      };
+    case SAVE_MUSIC: {
+      return {
+        musicaNome: action.payload.musicaNome,
+        urlPreview: action.payload.urlPreview,
+      };
+    }
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   dadosGerais: reducerDados,
   dadosMusica: reducerMusica,
+  musicaAtual: reducerPlay,
 });
 
 export default rootReducer;

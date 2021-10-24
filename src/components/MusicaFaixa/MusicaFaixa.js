@@ -1,9 +1,9 @@
 import React from 'react';
 import * as S from './MusicaFaixa.styles';
 
-const MusicaFaixa = ({ nomeMusica, tempo }) => {
+const MusicaFaixa = ({ nomeMusica, tempo, acao }) => {
   return (
-    <S.Li>
+    <S.Li onClick={acao}>
       {nomeMusica} <S.Span>{tempo}</S.Span>
     </S.Li>
   );
