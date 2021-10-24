@@ -1,7 +1,7 @@
 import React from 'react';
 import { screen, fireEvent, waitFor } from '@testing-library/react';
 import { renderConnected } from '../../../utils/test-utils';
-import Lista from '../Lista';
+import Home from '../Home';
 
 const mockHistoryPush = jest.fn();
 
@@ -12,7 +12,7 @@ jest.mock('react-router-dom', () => ({
   }),
 }));
 
-describe('Testes da lista', () => {
+describe('Testes da Home', () => {
   test('Verifica quando tem dados na busca', async () => {
     const initialState = {
       dadosGerais: {
@@ -44,7 +44,7 @@ describe('Testes da lista', () => {
       },
     };
 
-    renderConnected(<Lista />, {
+    renderConnected(<Home />, {
       initialState,
     });
     expect(
@@ -67,7 +67,7 @@ describe('Testes da lista', () => {
       },
     };
 
-    renderConnected(<Lista />, {
+    renderConnected(<Home />, {
       initialState,
     });
     expect(screen.getByText(/Nenhum dado encontrado/i)).toBeInTheDocument();

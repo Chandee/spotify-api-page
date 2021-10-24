@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import Cartao from '../../components/Cartao/Cartao';
-import MusicaFaixa from '../../components/MusicaFaixa/MusicaFaixa';
 import Playlist from '../../components/Playlist/Playlist';
 import { fetchMusicas } from '../../redux/actions';
 import * as S from './Album.styles';
@@ -31,7 +30,6 @@ const Album = ({ fetchMusicas, musicas, album }) => {
             nomeAlbum={album.nomeAlbum}
             nomeArtista={album.artistas}
             imagem={album.imagem?.url}
-            noHover
           />
         </div>
         <S.ContainerPlaylist>

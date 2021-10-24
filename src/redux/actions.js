@@ -57,6 +57,7 @@ const fetchAlbumSuccess = payload => {
 };
 
 const fetchAlbumFailure = error => {
+  console.log('erro', error);
   return {
     type: FETCH_ALBUM_FAILURE,
     payload: error,

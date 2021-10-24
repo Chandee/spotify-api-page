@@ -17,7 +17,6 @@ export const renderConnected = (
   } = {}
 ) => {
   const Wrapper = ({ children }) => {
-    console.log('teste', store);
     return (
       <Provider store={store}>
         <ThemeProvider theme={theme}>{children}</ThemeProvider>

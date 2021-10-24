@@ -1,6 +1,4 @@
-import axios from 'axios';
 import React, { useEffect } from 'react';
-import { requestAxios } from '../../service/request';
 import { useHistory } from 'react-router-dom';
 
 const Callback = () => {

@@ -2,9 +2,9 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-// describe('teste', () => {
-//     test('testinho 1', () =>{
-//         render(<App/>)
-//         expect(screen.getByText('oi')).toBeInTheDocument();
-//     })
-// })
+describe('Teste app', () => {
+  test('Verifica se está renderizando', () => {
+    const { container } = render(<App />);
+    expect(container.innerHTML).toBeTruthy();
+  });
+});
