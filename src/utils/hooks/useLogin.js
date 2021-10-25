@@ -7,8 +7,8 @@ export const useLogin = () => {
   };
 
   const funcaoLogin = () => {
-    var client_id = process.env.CLIENT_ID; //trocar para env
-    var redirect_uri = 'http://localhost:3000/callback';
+    var client_id = process.env.CLIENT_ID;
+    var redirect_uri = process.env.URL_REDIRECT + '/callback';
     var state = gerarStringRandomica(16);
     var scope = 'user-read-private user-read-email';
     var url = process.env.SERVER_AUTH;
