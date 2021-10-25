@@ -6,7 +6,7 @@ import Play from '../../img/play.svg';
 import { limpaMusica } from '../../redux/actions';
 import { connect } from 'react-redux';
 
-const TocadorDeMusica = ({ limpaMusica, musica, urlPreview }) => {
+export const TocadorDeMusica = ({ limpaMusica, musica, urlPreview }) => {
   const [tempoDeMusica, setTempoDeMusica] = useState(0);
   const [tocandoMusica, setTocandoMusica] = useState(false);
   const [nome, setNome] = useState('');
@@ -45,6 +45,7 @@ const TocadorDeMusica = ({ limpaMusica, musica, urlPreview }) => {
 
   const onPlay = () => {
     setTocandoMusica(true);
+    console.log('aduio ref', audioRef.current);
     audioRef.current.play();
   };
 
@@ -62,11 +63,11 @@ const TocadorDeMusica = ({ limpaMusica, musica, urlPreview }) => {
           <div>
             {tocandoMusica ? (
               <S.Botao onClick={() => onPause()}>
-                <S.Icon src={Pause} />
+                <S.Icon src={Pause} alt='Botao pausa' />
               </S.Botao>
             ) : (
               <S.Botao onClick={() => onPlay()}>
-                <S.Icon src={Play} />
+                <S.Icon src={Play} alt='Botao play' />
               </S.Botao>
             )}
           </div>
@@ -76,8 +77,10 @@ const TocadorDeMusica = ({ limpaMusica, musica, urlPreview }) => {
               type='range'
               value={tempoDeMusica}
               step='1'
+              id='tempoMusica'
+              name='tempoMusica'
               min='0'
-              max={duration ? duration : `${duration}`}
+              max={duration ? duration : 0}
               onChange={e => tempoInit(e.target.value)}
             />
             <span>

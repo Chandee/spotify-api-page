@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { salvaMusica } from '../../redux/actions';
 import MusicaFaixa from '../MusicaFaixa/MusicaFaixa';
 
-const Playlist = ({ musicas, salvaMusica }) => {
+export const Playlist = ({ musicas, salvaMusica }) => {
   return (
     <ol>
       {musicas.map(m => (

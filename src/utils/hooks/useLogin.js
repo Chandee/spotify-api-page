@@ -7,11 +7,11 @@ export const useLogin = () => {
   };
 
   const funcaoLogin = () => {
-    var client_id = 'a5626c71bb664145b9bdce4e0b87c865'; //trocar para env
+    var client_id = process.env.CLIENT_ID; //trocar para env
     var redirect_uri = 'http://localhost:3000/callback';
     var state = gerarStringRandomica(16);
     var scope = 'user-read-private user-read-email';
-    var url = 'https://accounts.spotify.com/authorize';
+    var url = process.env.SERVER_AUTH;
 
     url += '?response_type=token';
     url += '&client_id=' + encodeURIComponent(client_id);

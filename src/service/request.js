@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const requestAxios = (url, config) => {
   const customAxios = axios.create({
-    baseURL: 'https://api.spotify.com/v1',
+    baseURL: process.env.API,
     headers: {
       Authorization: 'Bearer ' + sessionStorage.getItem('auth_token'),
     },

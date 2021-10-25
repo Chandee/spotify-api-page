@@ -15,7 +15,6 @@ import useAuthentication from '../utils/hooks/useAuthentication';
 import { Container } from './Routes.styles';
 const Routes = () => {
   const logado = useAuthentication();
-  console.log('toioioio', logado);
   return (
     <Router>
       <div
