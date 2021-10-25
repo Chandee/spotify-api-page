@@ -4,8 +4,9 @@ import * as S from './Lista.styles';
 import { connect } from 'react-redux';
 import { listaArtistas } from '../../utils/formatador';
 import { useHistory } from 'react-router-dom';
+import { guardaUltimaPesquisa } from '../../redux/actions';
 
-const Lista = ({ dadosAlbum, pesquisa }) => {
+const Lista = ({ dadosAlbum, pesquisa, guardaUltimaPesquisa }) => {
   const history = useHistory();
   const ExisteDado = () => {
     return dadosAlbum.length > 0 ? true : false;
@@ -22,12 +23,25 @@ const Lista = ({ dadosAlbum, pesquisa }) => {
           nomeArtista={listaArtistas(v.artistas)}
           key={v.id}
           imagem={v.imagem.url}
-          clique={() => history.push(`/album/${v.id}`)}
+          clique={() => {
+            guardaUltimaPesquisa({
+              nomeAlbum: v.nomeAlbum,
+              artistas: v.artistas,
+              id: v.id,
+              imagem: v.imagem,
+            });
+            history.push(`/album/${v.id}`);
+          }}
         />
       ))}
       {!ExisteDado() && <S.Titulo>Nenhum dado encontrado</S.Titulo>}
     </S.Container>
   );
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    guardaUltimaPesquisa: v => dispatch(guardaUltimaPesquisa(v)),
+  };
 };
 
 const mapStateToProps = state => {
@@ -37,4 +51,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Lista);
+export default connect(mapStateToProps, mapDispatchToProps)(Lista);

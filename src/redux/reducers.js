@@ -7,6 +7,7 @@ import {
   FETCH_MUSICA_FAILURE,
   CLEAR_MUSIC,
   SAVE_MUSIC,
+  GUARDA_HISTORICO,
 } from './constants';
 import { combineReducers } from 'redux';
 
@@ -27,6 +28,10 @@ const initialStateMusica = {
 const initialStatePlay = {
   musicaNome: '',
   urlPreview: '',
+};
+
+const initialStateHistorico = {
+  historico: [],
 };
 
 export const reducerDados = (state = initialStateDados, action) => {
@@ -98,10 +103,31 @@ export const reducerPlay = (state = initialStatePlay, action) => {
   }
 };
 
+export const reducerHistorico = (state = initialStateHistorico, action) => {
+  switch (action.type) {
+    case GUARDA_HISTORICO:
+      const concatArray = [...state.historico, action.payload];
+      const vetorLimpo = concatArray.reduce((acc, va) => {
+        if (acc.some(a => a.id === va.id)) {
+          return acc;
+        } else {
+          acc.push(va);
+          return acc;
+        }
+      }, []);
+      return {
+        historico: vetorLimpo,
+      };
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   dadosGerais: reducerDados,
   dadosMusica: reducerMusica,
   musicaAtual: reducerPlay,
+  historicoPesquisa: reducerHistorico,
 });
 
 export default rootReducer;

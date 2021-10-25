@@ -10,6 +10,7 @@ import {
   FETCH_MUSICA_FAILURE,
   SAVE_MUSIC,
   CLEAR_MUSIC,
+  GUARDA_HISTORICO,
 } from './constants';
 
 export const fetchAlbum = pesquisa => {
@@ -120,6 +121,13 @@ export const salvaMusica = payload => {
 export const limpaMusica = payload => {
   return {
     type: CLEAR_MUSIC,
+    payload: payload,
+  };
+};
+
+export const guardaUltimaPesquisa = payload => {
+  return {
+    type: GUARDA_HISTORICO,
     payload: payload,
   };
 };

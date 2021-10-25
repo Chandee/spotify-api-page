@@ -14,10 +14,7 @@ jest.mock('../../../service/request', () => {
 describe('Teste do input de pesquisa', () => {
   test('Verifica se chama endpoint após escrever na busca', async () => {
     const initialState = {
-      loading: false,
-      dados: [],
-      ultimaPesquisa: '',
-      error: '',
+      dadosGerais: { loading: false, dados: [], ultimaPesquisa: '', error: '' },
     };
     renderConnected(<InputPesquisa />, { initialState });
     expect(

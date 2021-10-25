@@ -36,7 +36,6 @@ describe('Testes do tocador de musica', () => {
         />
       </ThemeProvider>
     );
-    screen.debug();
     expect(funcLimpaMusica).toBeCalled();
     await waitFor(() => {
       expect(screen.getByText(/musica teste/i)).toBeInTheDocument();

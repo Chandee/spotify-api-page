@@ -8,3 +8,5 @@ export const FETCH_MUSICA_FAILURE = 'FETCH_MUSICA_FAILURE';
 
 export const SAVE_MUSIC = 'SAVE_MUSIC';
 export const CLEAR_MUSIC = 'CLEAR_MUSIC';
+
+export const GUARDA_HISTORICO = 'GUARDA_HISTORICO';

@@ -45,7 +45,6 @@ export const TocadorDeMusica = ({ limpaMusica, musica, urlPreview }) => {
 
   const onPlay = () => {
     setTocandoMusica(true);
-    console.log('aduio ref', audioRef.current);
     audioRef.current.play();
   };
 
