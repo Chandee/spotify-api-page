@@ -13,3 +13,21 @@ export const Li = styled.li`
     color: ${props => props.theme.cor.secundaria};
   }
 `;
+
+export const TextoSpan = styled.span`
+  @media screen and (max-width: 767px) {
+    display: inline-block;
+    white-space: nowrap;
+
+    max-width: 400px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  @media screen and (max-width: 600px) {
+    max-width: 300px;
+  }
+
+  @media screen and (max-width: 500px) {
+    max-width: 200px;
+  }
+`;

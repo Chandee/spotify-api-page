@@ -17,6 +17,11 @@ export const Input = styled.input`
   :focus {
     outline: none;
   }
+
+  @media screen and (max-width: 767px) {
+    font-size: ${props => props.theme.tamanho.medio};
+    width: 90%;
+  }
 `;
 
 export const Container = styled.div`

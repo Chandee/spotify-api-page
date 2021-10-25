@@ -5,6 +5,7 @@ import Cartao from '../../components/Cartao/Cartao';
 import Playlist from '../../components/Playlist/Playlist';
 import { fetchMusicas, limpaMusica } from '../../redux/actions';
 import * as S from './Album.styles';
+import Voltar from '../../img/voltar.svg';
 const Album = ({ fetchMusicas, album, limpaMusica }) => {
   const { id } = useParams();
   const history = useHistory();
@@ -16,24 +17,25 @@ const Album = ({ fetchMusicas, album, limpaMusica }) => {
   return (
     <S.Container>
       <div>
-        <button
+        <S.BotaoVoltar
           onClick={() => {
             limpaMusica();
             history.goBack();
           }}
         >
-          voltar
-        </button>
+          <img alt='botao voltar' src={Voltar} />
+          <span>voltar</span>
+        </S.BotaoVoltar>
       </div>
       <S.ContainerDivisao>
-        <div>
+        <S.ImagemContainer>
           <Cartao
             nomeAlbum={album.nomeAlbum}
             nomeArtista={album.artistas}
             imagem={album.imagem?.url}
             noHover
           />
-        </div>
+        </S.ImagemContainer>
         <S.ContainerPlaylist>
           <Playlist />
         </S.ContainerPlaylist>

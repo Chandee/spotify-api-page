@@ -5,6 +5,10 @@ export const Container = styled.div`
   max-width: 1440px;
   flex-flow: wrap;
   justify-content: space-between;
+
+  @media screen and (max-width: 767px) {
+    justify-content: center;
+  }
 `;
 
 export const Titulo = styled.h2`

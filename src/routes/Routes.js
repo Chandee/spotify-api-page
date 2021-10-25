@@ -12,7 +12,8 @@ import Callback from '../pages/Callback/Callback';
 import Home from '../pages/Home/Home';
 import Login from '../pages/Login/Login';
 import useAuthentication from '../utils/hooks/useAuthentication';
-import { Container } from './Routes.styles';
+import * as S from './Routes.styles';
+import imagem from '../img/logo.png';
 const Routes = () => {
   const logado = useAuthentication();
   return (
@@ -20,8 +21,10 @@ const Routes = () => {
       <div
         style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}
       >
-        <Container>
-          <header>imagem aqui</header>
+        <S.Container>
+          <S.Header>
+            <img src={imagem} />
+          </S.Header>
           <Switch>
             <Route exact path='/'>
               <Redirect to='/login' />
@@ -39,7 +42,7 @@ const Routes = () => {
               <Callback />
             </Route>
           </Switch>
-        </Container>
+        </S.Container>
         {logado && <TocadorDeMusica />}
       </div>
     </Router>
