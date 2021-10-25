@@ -24,7 +24,7 @@ yarn install
 O projeto conta com váriaveis de ambiente, para isso é necessário setar um arquivo .env na raiz do projeto. Dentro desse arquivo deve-se conter a seguinte configuraçao:
 
 ```sh
-API= https://api.spotify.com/v1
+API=https://api.spotify.com/v1
 CLIENT_ID=chave_client_id
 SERVER_AUTH=https://accounts.spotify.com/authorize
 URL_REDIRECT=http://localhost:3000
