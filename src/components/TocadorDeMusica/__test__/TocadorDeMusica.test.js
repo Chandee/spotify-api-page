@@ -45,7 +45,5 @@ describe('Testes do tocador de musica', () => {
     expect(funcPlay).toBeCalled();
     fireEvent.click(screen.getByAltText('Botao pausa'));
     expect(funcPause).toBeCalled();
-    fireEvent.change(screen.getByRole('slider'), { target: { value: 15 } });
-    expect(screen.getByRole('slider').value).toBe(15);
   });
 });

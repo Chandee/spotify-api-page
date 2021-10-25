@@ -25,7 +25,7 @@ describe('Teste das rotas', () => {
         <Routes />
       </ThemeProvider>
     );
-    expect(screen.getByText('Seja bem vindops')).toBeInTheDocument();
+    expect(screen.getByText('Seja bem vindo')).toBeInTheDocument();
     expect(container.innerHTML).toBeTruthy();
   });
 });
