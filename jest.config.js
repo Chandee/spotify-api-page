@@ -9,5 +9,6 @@ module.exports = {
   transform: {
     '^.+\\.js$': 'babel-jest',
     '\\.svg$': '<rootDir>/fileTransformer.js',
+    '\\.png$': '<rootDir>/fileTransformer.js',
   },
 };
