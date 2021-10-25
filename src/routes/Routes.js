@@ -13,7 +13,6 @@ import Home from '../pages/Home/Home';
 import Login from '../pages/Login/Login';
 import useAuthentication from '../utils/hooks/useAuthentication';
 import * as S from './Routes.styles';
-import imagem from '../img/logo.png';
 const Routes = () => {
   const logado = useAuthentication();
   return (
@@ -23,7 +22,7 @@ const Routes = () => {
       >
         <S.Container>
           <S.Header>
-            <img src={imagem} />
+            <img src={'../img/logo.png'} />
           </S.Header>
           <Switch>
             <Route exact path='/'>

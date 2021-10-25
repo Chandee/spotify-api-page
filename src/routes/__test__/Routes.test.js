@@ -1,6 +1,8 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import Routes from '../Routes';
+import { ThemeProvider } from 'styled-components';
+import { theme } from '../../utils/Theme';
 
 describe('Teste das rotas', () => {
   test('Verifica se renderiza', () => {
@@ -18,8 +20,12 @@ describe('Teste das rotas', () => {
       value: localStorageMock,
     });
     global.window = { location: { pathname: '/login' } };
-    const { container } = render(<Routes />);
-    expect(screen.getByText('inicio')).toBeInTheDocument();
+    const { container } = render(
+      <ThemeProvider theme={theme}>
+        <Routes />
+      </ThemeProvider>
+    );
+    expect(screen.getByText('Seja bem vindops')).toBeInTheDocument();
     expect(container.innerHTML).toBeTruthy();
   });
 });
