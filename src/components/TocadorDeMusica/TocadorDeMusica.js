@@ -10,32 +10,41 @@ export const TocadorDeMusica = ({ limpaMusica, musica, urlPreview }) => {
   const [tempoDeMusica, setTempoDeMusica] = useState(0);
   const [tocandoMusica, setTocandoMusica] = useState(false);
   const [nome, setNome] = useState('');
+  const [monstraCarregado, setMotraCarregado] = useState(false);
   const audioRef = useRef(new Audio());
 
   const { duration } = audioRef.current;
 
   useEffect(() => {
     onPause();
-    setNome(musica);
-    audioRef.current = new Audio(urlPreview);
-  }, [musica]);
+    setMotraCarregado(false);
 
-  useEffect(() => {
-    limpaMusica();
+    audioRef.current.currentTime = 0;
+    setNome(musica);
     const atualizaTempo = e => {
       setTempoDeMusica(e.target.currentTime.toFixed(0));
+    };
+
+    const carrega = e => {
+      setMotraCarregado(true);
     };
 
     const atualizaPlayer = () => {
       setTocandoMusica(false);
       audioRef.current.currentTime = 0;
     };
+    audioRef.current = new Audio(urlPreview);
+    audioRef.current.addEventListener('loadeddata', carrega);
     audioRef.current.addEventListener('timeupdate', atualizaTempo);
     audioRef.current.addEventListener('ended', atualizaPlayer);
     return () => {
       audioRef.current.addEventListener('timeupdate', atualizaTempo);
       audioRef.current.addEventListener('ended', atualizaPlayer);
     };
+  }, [musica]);
+
+  useEffect(() => {
+    limpaMusica();
   }, []);
 
   const onPause = () => {
@@ -59,17 +68,19 @@ export const TocadorDeMusica = ({ limpaMusica, musica, urlPreview }) => {
           <span>{nome}</span>
         </S.TextoAnimado>
         <S.ContainerMusicaBarra>
-          <div>
-            {tocandoMusica ? (
-              <S.Botao onClick={() => onPause()}>
-                <S.Icon src={Pause} alt='Botao pausa' />
-              </S.Botao>
-            ) : (
-              <S.Botao onClick={() => onPlay()}>
-                <S.Icon src={Play} alt='Botao play' />
-              </S.Botao>
-            )}
-          </div>
+          {
+            <div>
+              {tocandoMusica ? (
+                <S.Botao onClick={() => onPause()}>
+                  <S.Icon src={Pause} alt='Botao pausa' />
+                </S.Botao>
+              ) : (
+                <S.Botao onClick={() => onPlay()}>
+                  <S.Icon src={Play} alt='Botao play' />
+                </S.Botao>
+              )}
+            </div>
+          }
           <S.ContainerBarra>
             <span> {transformaMilisegundoEmMinuto(tempoDeMusica * 1000)}</span>
             <S.Input
